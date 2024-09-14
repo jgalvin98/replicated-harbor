@@ -1,0 +1,17 @@
+apiVersion: kots.io/v1beta2
+kind: HelmChart
+metadata:
+  name: harbor
+spec:
+  # chart identifies a matching chart from a .tgz
+  chart:
+    name: harbor
+    chartVersion: 23.0.3
+  optionalValues:
+  - when: 'repl{{ eq Distribution "embedded-cluster" }}'
+    recursiveMerge: false
+    values:
+      service:
+        type: NodePort
+        nodePorts:
+          http: "32000"

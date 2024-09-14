@@ -1,0 +1,14 @@
+apiVersion: kots.io/v1beta1
+kind: Application
+metadata:
+  name: harbor
+spec:
+  title: Harbor
+  statusInformers:
+    - deployment/harbor
+  ports:
+    - serviceName: "harbor"
+      servicePort: 3000
+      localPort: 32000
+      applicationUrl: "http://harbor"
+  icon: https://raw.githubusercontent.com/cncf/artwork/master/projects/kubernetes/icon/color/kubernetes-icon-color.png
