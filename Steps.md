@@ -76,3 +76,6 @@ spec:
   version: 1.9.1+k8s-1.29
 
 replicated release lint --yaml-dir .
+
+# Create a release
+replicated release create --yaml-dir .
